@@ -13,8 +13,8 @@ RSS_FEEDS = {
 def getNews():
     current_feed = RSS_FEEDS['bbc']
     feed = feedparser.parse(current_feed)
-    first_article = feed['entries'][0]
-    return render_template("home.html", article=first_article)
+    # first_article = feed['entries'][0]
+    return render_template("home.html", articles=feed['entries'])
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

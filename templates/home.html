@@ -5,12 +5,23 @@
         <title>Headlines</title>
     </head>
     <body>
-        <h1>Your daily news digest!</h1>
-        <b>{{article.title}}</b> <br>
-        <i>{{article.published}}</i>
-        <p>
-            {{article.summary}}
-        </p>
-
+        <header>
+            <h1>Your daily news digest!</h1>
+        </header>
+        {% for article in articles %}
+            <h4><a href="{{article.link}}"> {{article.title}} </a></h4>
+            <i>{{article.published}}</i>
+            <p>
+                {{article.summary}}
+            </p>
+            <hr>
+        {% endfor %}
+        
+        <footer>
+            <p>
+                <small>Courtesy of BBC <sup>&copy;</sup>
+                </small>
+            </p>
+        </footer>
     </body>
 </html>
