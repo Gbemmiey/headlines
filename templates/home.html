@@ -8,6 +8,10 @@
         <header>
             <h1>Your daily news digest!</h1>
         </header>
+        <form>
+            <input type="text" name="publication" placeholder="search">
+            <input type="submit" value="Submit">
+        </form>
         {% for article in articles %}
             <h4><a href="{{article.link}}"> {{article.title}} </a></h4>
             <i>{{article.published}}</i>
@@ -19,7 +23,7 @@
         
         <footer>
             <p>
-                <small>Courtesy of BBC <sup>&copy;</sup>
+                <small>Courtesy of {{publisher}} <sup>&copy;</sup>
                 </small>
             </p>
         </footer>
