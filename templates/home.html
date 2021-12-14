@@ -2,18 +2,41 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Headlines</title>
     </head>
     <body>
         <header>
             <h1>Your daily news digest!</h1>
+            
+            <div class="search">
+                <h5>Current Weather</h5>
+                <form>
+                    <input type="text" name="city" placeholder="City">
+                    <input type="submit" value="Submit">
+                </form>
+                <p>
+                    <b>{{weather.city}}</b> | <small>{{weather.country}} </small>- {{weather.description}}: <i>{{weather.temp}} &deg;C </i>  <br>  
+                    1 &#36 = {{currency.currency}} {{currency.rate}}
+                </p>
+            </div>
+
+            <div class="search">
+                <h5>Publication</h5>
+                <form>
+                    <input type="text" name="publication" placeholder="search">
+                    <input type="submit" value="Submit">
+                </form>
+                <small>
+                    {{publisher}} <sup>&copy;</sup>
+                </small> 
+            </div>
         </header>
-        <form>
-            <input type="text" name="publication" placeholder="search">
-            <input type="submit" value="Submit">
-        </form>
+        <hr>
         {% for article in articles %}
-            <h4><a href="{{article.link}}"> {{article.title}} </a></h4>
+            <h4><a href="{{article.link}}" target="_blank"> {{article.title}} </a></h4>
             <i>{{article.published}}</i>
             <p>
                 {{article.summary}}
