@@ -51,7 +51,6 @@ def get_currency_code(weather_code):
     
 
 # Obtain a city's weather information using openweatherwap's API
-# openWeather_key = '4a3392ac7e9d7fd9745660307c68d2e2'
 def get_weather(city_name):
     url = 'http://api.openweathermap.org/data/2.5/weather?'
     complete_url = url + 'q='+city_name+'&appid='+ API_KEYS['openweathermap']
@@ -84,8 +83,6 @@ def getNews():
         city_query = DEFAULTS['city']
     else:
         city_query = city_query
-    # publication_query="bbc"
-    # ?publication=punch
     if not publication_query or publication_query.lower() not in RSS_FEEDS:
         publication = DEFAULTS['publication']
     else:
@@ -94,10 +91,9 @@ def getNews():
     weather = parseWeather(city_query)
     currencyInfo = parseCurrency(weather)
 
-    # exchangeRates = 6
     feed = feedparser.parse(RSS_FEEDS[publication])
     return render_template("home.html", articles=feed['entries'], publisher=publication.upper(), weather=weather, currency=currencyInfo)
     
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()
