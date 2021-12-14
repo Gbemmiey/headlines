@@ -24,7 +24,7 @@ API_KEYS = {
 # Return a dictionary containing the rate & currency
 def get_exchange_rate(currency_code):
     currency_url = 'https://openexchangerates.org/api/latest.json'
-    complete_url = currency_url + '?app_id='+'343d5789368b4ef0b164573b168bf50f' + "&" + currency_code
+    complete_url = currency_url + '?app_id='+ API_KEYS['openexchangerates'] + "&" + currency_code
     rate = requests.get(complete_url).json()
     rates = {
         'rate':rate['rates'][currency_code],
@@ -51,10 +51,10 @@ def get_currency_code(weather_code):
     
 
 # Obtain a city's weather information using openweatherwap's API
-openWeather_key = '4a3392ac7e9d7fd9745660307c68d2e2'
+# openWeather_key = '4a3392ac7e9d7fd9745660307c68d2e2'
 def get_weather(city_name):
     url = 'http://api.openweathermap.org/data/2.5/weather?'
-    complete_url = url + 'q='+city_name+'&appid='+ openWeather_key
+    complete_url = url + 'q='+city_name+'&appid='+ API_KEYS['openweathermap']
     current_weather = requests.get(complete_url).json()
     return current_weather
 
