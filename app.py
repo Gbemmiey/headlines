@@ -1,8 +1,12 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import feedparser
 import requests, json
+import os
 
 app = Flask(__name__)
+load_dotenv()
+
 
 RSS_FEEDS = {
     'bbc':'http://feeds.bbci.co.uk/news/world/africa/rss.xml',
@@ -16,8 +20,8 @@ DEFAULTS = {
 }
 
 API_KEYS = {
-    'openexchangerates': '343d5789368b4ef0b164573b168bf50f',
-    'openweathermap' :  '4a3392ac7e9d7fd9745660307c68d2e2'
+    'openexchangerates': os.getenv('openexchangerates'),
+    'openweathermap' :  os.getenv('openweathermap')
 }
 
 # Using a country's currency code,
@@ -95,5 +99,4 @@ def getNews():
     return render_template("home.html", articles=feed['entries'], publisher=publication.upper(), weather=weather, currency=currencyInfo)
     
 
-# if __name__ == '__main__':
-#     app.run()
+# app.run(debug=True)

@@ -4,12 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/static/styles.css">
 
         <title>Headlines</title>
     </head>
     <body>
         <header>
-            <h1>Your daily news digest!</h1>
+            <h1>Your {{publisher}}<sup>&copy;</sup> daily news digest!</h1>
             
             <div class="search">
                 <h5>Current Weather</h5>
@@ -35,13 +36,16 @@
             </div>
         </header>
         <hr>
+        
         {% for article in articles %}
+        <div class="highlights">
             <h4><a href="{{article.link}}" target="_blank"> {{article.title}} </a></h4>
             <i>{{article.published}}</i>
             <p>
                 {{article.summary}}
             </p>
-            <hr>
+        </div>
+        <hr>
         {% endfor %}
         
         <footer>

@@ -1,0 +1,23 @@
+body {
+    margin: auto;
+    background-color: white;
+    width: 80%;
+    text-align: center;
+}
+
+
+
+.highlights {
+    width: 90%;
+    border-radius: 20px;
+    border-radius: 10%;
+    border-style: groove;
+    text-align: justify center;
+    margin: auto;
+}
+
+html{
+    background-color: darkturquoise ;
+}
+
+
