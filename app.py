@@ -98,6 +98,5 @@ def getNews():
     feed = feedparser.parse(RSS_FEEDS[publication])
     return render_template("home.html", articles=feed['entries'], publisher=publication.upper(), weather=weather, currency=currencyInfo)
     
-app.run()
-
-# app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
