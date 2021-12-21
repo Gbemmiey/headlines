@@ -14,7 +14,7 @@ body {
 .flex_child{
     flex: auto;
     width: 50%;
-    background-color: darkkhaki;
+    background-color: cornsilk;
     text-align: center;
     border-radius: 40%;
     border: 5px solid whitesmoke;
