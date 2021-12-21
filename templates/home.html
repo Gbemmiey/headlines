@@ -4,36 +4,38 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css')}}">
 
         <title>Headlines</title>
     </head>
+
     <body>
         <header>
             <h1>Your {{publisher}}<sup>&copy;</sup> daily news digest!</h1>
-            
-            <div class="search">
-                <h5>Current Weather</h5>
-                <form>
-                    <input type="text" name="city" placeholder="City">
-                    <input type="submit" value="Submit">
-                </form>
-                <p>
-                    <b>{{weather.city}}</b> | <small>{{weather.country}} </small>- {{weather.description}}: <i>{{weather.temp}} &deg;C </i>  <br>  
-                    1 &#36 = {{currency.currency}} {{currency.rate}}
-                </p>
-            </div>
+            <div class="heading">
+                <div id="weather" class= flex_child>
+                    <form>
+                        <input type="text" name="city" placeholder="City">
+                        <input type="submit">
+                    </form>
+                </div>
 
-            <div class="search">
-                <h5>Publication</h5>
-                <form>
-                    <input type="text" name="publication" placeholder="search">
-                    <input type="submit" value="Submit">
-                </form>
-                <small>
-                    {{publisher}} <sup>&copy;</sup>
-                </small> 
+                <div id="publication" class="flex_child">
+                    <form>
+                        <select name="publication">
+                            {% for item in PUBLICATIONS %}
+                                <option value="{{item}}">{{item | capitalize}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit">
+                    </form>
+                </div>
             </div>
+            <p>
+                <b>{{weather.city}}</b> | <small>{{weather.country}} </small>- {{weather.description}}: <i>{{weather.temp}} &deg;C </i>  <br>  
+                1 &#36 = {{currency.currency}} {{currency.rate}}
+            </p>
+
         </header>
         <hr>
         

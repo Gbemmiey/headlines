@@ -96,7 +96,7 @@ def getNews():
     currencyInfo = parseCurrency(weather)
 
     feed = feedparser.parse(RSS_FEEDS[publication])
-    return render_template("home.html", articles=feed['entries'], publisher=publication.upper(), weather=weather, currency=currencyInfo)
+    return render_template("home.html", articles=feed['entries'], publisher=publication.upper(), weather=weather, currency=currencyInfo, PUBLICATIONS=RSS_FEEDS)
     
 if __name__ == "__main__":
     app.run(debug=True)
