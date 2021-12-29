@@ -31,8 +31,10 @@ def get_exchange_rate(currency_code):
     currency_url = 'https://openexchangerates.org/api/latest.json'
     complete_url = currency_url + '?app_id=' + API_KEYS['openexchangerates'] + "&" + currency_code
     rate = requests.get(complete_url).json()
+    result = rate['rates'][currency_code]
+    formatted_rate = "{:.2f}".format(result)
     rates = {
-        'rate': rate['rates'][currency_code],
+        'rate': formatted_rate,
         'currency': currency_code
     }
     return rates
